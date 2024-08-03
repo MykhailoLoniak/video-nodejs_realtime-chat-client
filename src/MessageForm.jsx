@@ -1,14 +1,19 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-const API_URL = 'http://127.0.0.1:5000/messages';
+const API_URL = 'http://localhost:3005/messages';
 
-function sendMessage(text) {
-  return axios.post(API_URL, { text });
-}
+const sendMessage = async (text, author, room) => {
+  try {
+    await axios.post(API_URL, { text, author, room });
+  } catch (error) {
+    console.error("Error sending message:", error);
+  }
+};
 
-export const MessageForm = () => {
+export const MessageForm = ({room}) => {
   const [text, setText] = useState('');
+  const author =  localStorage.getItem("name");
 
   return (
     <form
@@ -16,7 +21,7 @@ export const MessageForm = () => {
       onSubmit={async (event) => {
         event.preventDefault();
         
-        await sendMessage(text);
+        await sendMessage(text, author, room );
         
         setText('');
       }}

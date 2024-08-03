@@ -4,3 +4,53 @@
   gap: 10px;
   align-items: center;
 }
+
+* {
+box-sizing: border-box;
+}
+
+.con {
+  display: flex;
+}
+
+.con__chat {
+  width: 80%;
+}
+
+.con__room {
+  min-width: 300px;
+  padding-inline: 15px;
+}
+
+.roomItem {
+  cursor: pointer;
+  list-style: none;
+}
+
+.roomItem:hover {
+  text-shadow: 1px 1px rgb(127, 127, 127);
+}
+
+.iconCheck{
+  position: relative;
+  top: 3px;
+  padding-right: 5px;
+}
+
+.messageUl{
+  margin: 0 !important; 
+}
+.messageItem {
+  border: 1px solid #dedddd;
+  border-radius: 5px;
+  box-shadow: 2px 2px -2px -2px #ff0707;
+  list-style: none;
+  padding: 5px;
+}
+
+.author{
+  font-size: 0.7rem;
+  color: #9a9999;
+  display: flex;
+  justify-content: end;
+}
